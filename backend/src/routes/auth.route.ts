@@ -6,7 +6,7 @@ const router: Router = Router();
 
 
 router.get("/", (req:Request, res:Response)=>{
-    res.json({"name":"dickers"});
+    res.json({"name":"get method baby"});
 });
 
 
