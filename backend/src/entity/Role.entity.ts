@@ -24,6 +24,7 @@ export class Role extends BaseEntity{
     @CreateDateColumn({select: false, nullable: false})
     deletedAt: Date;
 
-    @ManyToOne(() => User, user => user.roles)
-    user: User;
+    @OneToMany(() => User, user => user.role)
+    users: User[];
+
 }

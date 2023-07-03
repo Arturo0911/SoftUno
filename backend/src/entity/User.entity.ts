@@ -9,7 +9,7 @@ export class User extends BaseEntity{
     id: number;
 
 
-    @Column({nullable: false})
+    @Column({nullable: false, unique:true})
     credential: string;
 
 
@@ -24,11 +24,11 @@ export class User extends BaseEntity{
     status: boolean;
 
 
-    @Column({length:50,nullable: false})
+    @Column({length:50,nullable: false, unique:true})
     email: string;
 
     
-    @Column({nullable: false})
+    @Column({ nullable: false})
     password: string;
 
     @CreateDateColumn({select: false, nullable: false})
@@ -40,10 +40,21 @@ export class User extends BaseEntity{
     @CreateDateColumn({select: false, nullable: false})
     deletedAt: Date;
 
+    @Column({type: "int"}) // <- Assuming that your primary key type is UUID (OR you can have "char")
+    roleId: number;
 
-    @OneToMany(() => Role, role => role.user)
-    roles: Role[];
+    @Column({type: "int"}) // <- Assuming that your primary key type is UUID (OR you can have "char")
+    departmentId: number;
 
-    @ManyToOne(() => Department, department => department.users)
+
+    @ManyToOne(() => Role, role => role.users,{nullable: false,
+        eager: true,
+        cascade:['insert']})
+    role: Role;
+
+
+    @ManyToOne(() => Department, department => department.users,{nullable: false,
+        eager: true,
+        cascade:['insert']})
     department: Department;
 }

@@ -29,7 +29,7 @@
     "@types/morgan": "^1.9.4",
     "@types/mysql": "^2.15.21",
     "concurrently": "^8.2.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^1.14.9",
     "typeorm": "^0.3.17",
     "typescript": "^5.1.3"
   }

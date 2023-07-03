@@ -15,20 +15,20 @@ export class Visitor extends BaseEntity{
     fullName: string;
 
 
-    @CreateDateColumn({select: false, nullable: false})
+    @CreateDateColumn({select: false})
     createdAt: Date;
 
-    @CreateDateColumn({select: false, nullable: false})
+    @CreateDateColumn({select: false})
     modifiedAt: Date;
 
-    @CreateDateColumn({select: false, nullable: false})
+    @CreateDateColumn({select: false})
     deletedAt: Date;
 
     @Column({nullable: false})
     departmentVisitor: string;
 
-    @Column({nullable: false, default:"ON COURSE"})
-    status: String;
+    @Column({default:"ON COURSE"})
+    status: string;
 
 
 }
